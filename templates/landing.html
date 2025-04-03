@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wildlife Ecosystem Simulation</title>
+    <style>
+        :root {
+            --primary-color: #388E3C;
+            --secondary-color: #4CAF50;
+            --accent-color: #50bd57;
+            --text-color: #E0E0E0;
+            --light-bg: #81C784;
+            --dark-bg: #37acec;
+            --error-color: #D32F2F;
+            --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            --bg-gradient: linear-gradient(135deg, #65d5f7 0%, #e6eee7c4 50%, #42e7f6 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+
+        .landing-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Background image with overlay */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('public/static/marita-kavelashvili-ugnrXk1129g-unsplash.jpg');
+            background-size: cover;
+            background-position: center;
+            opacity: 1.0; /* 20% opacity (80% transparent) */
+            z-index: -1;
+        }
+
+        /* Gradient overlay on top of image */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-gradient);
+            opacity: 0.1; /* 80% opacity */
+            z-index: -1;
+        }
+
+        .landing-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: rgb(255, 255, 255);
+            position: relative;
+        }
+
+        .landing-header h1 {
+            font-size: 2.8rem;
+            color: rgb(72, 142, 86);
+            margin-bottom: 0.8rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .landing-header p {
+            font-size: 1.3rem;
+            color: rgb(72, 142, 86);
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .landing-visualization {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            height: auto;
+            position: relative;
+            backdrop-filter: blur(5px);
+        }
+
+        .visualization-content {
+            color: white;
+            text-align: center;
+        }
+
+        .visualization-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .visualization-content p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .landing-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .feature-card {
+            background: rgba(30, 30, 30, 0.6);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            background: rgba(40, 40, 40, 0.7);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .feature-card h3 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        .feature-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        @media (max-width: 768px) {
+            .landing-header h1 {
+                font-size: 2.2rem;
+            }
+            
+            .landing-header p {
+                font-size: 1.1rem;
+            }
+            
+            .landing-features {
+                grid-template-columns: 1fr;
+            }
+            
+            .landing-visualization {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="landing-page">
+    <div class="landing-container">
+        <div class="landing-header">
+            <h1>Wildlife Ecosystem Dynamics</h1>
+            <p>Experience the delicate balance between predators and prey in an immersive environment</p>
+            <a href="/simulation" class="cta-button">Launch Simulation</a>
+        </div>
+        
+        <div class="landing-visualization">
+            <div class="visualization-content">
+                <h2>Explore Nature's Balance</h2>
+                <p>Discover how predator and prey populations interact in a dynamic ecosystem simulation that demonstrates fundamental ecological principles.</p>
+                <p>Our visualization helps you understand the complex relationships that maintain biodiversity.</p>
+            </div>
+        </div>
+        
+        <div class="landing-features">
+            <div class="feature-card">
+                <div class="feature-icon">🦌</div>
+                <h3>Dynamic Populations</h3>
+                <p>Watch prey and predator populations fluctuate in real-time based on ecological principles</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <h3>Interactive Environment</h3>
+                <p>Explore a rich ecosystem with dynamic relationships and environmental factors</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Scientific Insights</h3>
+                <p>Learn about Lotka-Volterra equations and population dynamics</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
