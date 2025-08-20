@@ -1,4 +1,4 @@
-# NDVI-Enhanced Predator-Prey Ecosystem Simulation with Reinforcement Learning
+# BIOFLUXX - NDVI-Enhanced Predator-Prey Ecosystem Simulation with Reinforcement Learning
 
 
 *A visualization of dynamic ecosystem interactions in a predator-prey model integrated with real-world NDVI data.*
