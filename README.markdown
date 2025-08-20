@@ -1,6 +1,6 @@
 # NDVI-Enhanced Predator-Prey Ecosystem Simulation with Reinforcement Learning
 
-![Project Banner](public/static/keyur-nandaniya-5xxA9OS4r3s-unsplash.jpeg)  
+
 *A visualization of dynamic ecosystem interactions in a predator-prey model integrated with real-world NDVI data.*
 
 ## Project Overview
